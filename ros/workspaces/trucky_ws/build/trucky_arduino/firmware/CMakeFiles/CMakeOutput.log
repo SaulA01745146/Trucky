@@ -1,0 +1,349 @@
+The target system is: Arduino -  - 
+The host system is: Linux - 4.9.140-tegra - aarch64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/avr-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/3.10.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/avr-g++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/3.10.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ed823/fast"
+make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_ed823.dir/build.make CMakeFiles/cmTC_ed823.dir/build
+make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ed823.dir/testCCompiler.c.obj
+/usr/bin/avr-gcc   -g -Os       -mcall-prologues -ffunction-sections -fdata-sections    -o CMakeFiles/cmTC_ed823.dir/testCCompiler.c.obj   -c /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_ed823
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ed823.dir/link.txt --verbose=1
+/usr/bin/avr-gcc -g -Os       -mcall-prologues -ffunction-sections -fdata-sections   -Wl,--gc-sections -lm  CMakeFiles/cmTC_ed823.dir/testCCompiler.c.obj  -o cmTC_ed823 
+make[5]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b436b/fast"
+make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_b436b.dir/build.make CMakeFiles/cmTC_b436b.dir/build
+make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b436b.dir/CMakeCCompilerABI.c.obj
+/usr/bin/avr-gcc   -g -Os       -mcall-prologues -ffunction-sections -fdata-sections    -o CMakeFiles/cmTC_b436b.dir/CMakeCCompilerABI.c.obj   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_b436b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b436b.dir/link.txt --verbose=1
+/usr/bin/avr-gcc -g -Os       -mcall-prologues -ffunction-sections -fdata-sections   -Wl,--gc-sections -lm -v CMakeFiles/cmTC_b436b.dir/CMakeCCompilerABI.c.obj  -o cmTC_b436b 
+Using built-in specs.
+Reading specs from /usr/lib/gcc/avr/5.4.0/device-specs/specs-avr2
+COLLECT_GCC=/usr/bin/avr-gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/avr/5.4.0/lto-wrapper
+Target: avr
+Configured with: ../gcc/configure -v --enable-languages=c,c++ --prefix=/usr/lib --infodir=/usr/share/info --mandir=/usr/share/man --bindir=/usr/bin --libexecdir=/usr/lib --libdir=/usr/lib --enable-shared --with-system-zlib --enable-long-long --enable-nls --without-included-gettext --disable-libssp --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=avr CFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ' CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2' CXXFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ' FCFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong' FFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong' GCJFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong' LDFLAGS='-Wl,-Bsymbolic-functions -Wl,-z,relro' OBJCFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ' OBJCXXFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat '
+Thread model: single
+gcc version 5.4.0 (GCC) 
+COMPILER_PATH=/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/:/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/:/usr/lib/gcc/avr/5.4.0/../../../avr/bin/
+LIBRARY_PATH=/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/5.4.0/../../../avr/lib/
+COLLECT_GCC_OPTIONS='-g' '-Os' '-mcall-prologues' '-ffunction-sections' '-fdata-sections' '-v' '-o' 'cmTC_b436b' '-specs=device-specs/specs-avr2'
+ /usr/lib/gcc/avr/5.4.0/collect2 -plugin /usr/lib/gcc/avr/5.4.0/liblto_plugin.so -plugin-opt=/usr/lib/gcc/avr/5.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccQy38So.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_b436b -L/usr/lib/gcc/avr/5.4.0 -L/usr/lib/gcc/avr/5.4.0/../../../avr/lib --gc-sections -lm CMakeFiles/cmTC_b436b.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group
+make[5]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(avr-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_b436b/fast"]
+  ignore line: [make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_b436b.dir/build.make CMakeFiles/cmTC_b436b.dir/build]
+  ignore line: [make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_b436b.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/usr/bin/avr-gcc   -g -Os       -mcall-prologues -ffunction-sections -fdata-sections    -o CMakeFiles/cmTC_b436b.dir/CMakeCCompilerABI.c.obj   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_b436b]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b436b.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/avr-gcc -g -Os       -mcall-prologues -ffunction-sections -fdata-sections   -Wl,--gc-sections -lm -v CMakeFiles/cmTC_b436b.dir/CMakeCCompilerABI.c.obj  -o cmTC_b436b ]
+  ignore line: [Using built-in specs.]
+  ignore line: [Reading specs from /usr/lib/gcc/avr/5.4.0/device-specs/specs-avr2]
+  ignore line: [COLLECT_GCC=/usr/bin/avr-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/avr/5.4.0/lto-wrapper]
+  ignore line: [Target: avr]
+  ignore line: [Configured with: ../gcc/configure -v --enable-languages=c,c++ --prefix=/usr/lib --infodir=/usr/share/info --mandir=/usr/share/man --bindir=/usr/bin --libexecdir=/usr/lib --libdir=/usr/lib --enable-shared --with-system-zlib --enable-long-long --enable-nls --without-included-gettext --disable-libssp --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=avr CFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ' CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2' CXXFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ' FCFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong' FFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong' GCJFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong' LDFLAGS='-Wl,-Bsymbolic-functions -Wl,-z,relro' OBJCFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ' OBJCXXFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ']
+  ignore line: [Thread model: single]
+  ignore line: [gcc version 5.4.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/:/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/:/usr/lib/gcc/avr/5.4.0/../../../avr/bin/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/5.4.0/../../../avr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-g' '-Os' '-mcall-prologues' '-ffunction-sections' '-fdata-sections' '-v' '-o' 'cmTC_b436b' '-specs=device-specs/specs-avr2']
+  link line: [ /usr/lib/gcc/avr/5.4.0/collect2 -plugin /usr/lib/gcc/avr/5.4.0/liblto_plugin.so -plugin-opt=/usr/lib/gcc/avr/5.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccQy38So.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_b436b -L/usr/lib/gcc/avr/5.4.0 -L/usr/lib/gcc/avr/5.4.0/../../../avr/lib --gc-sections -lm CMakeFiles/cmTC_b436b.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group]
+    arg [/usr/lib/gcc/avr/5.4.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/avr/5.4.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/avr/5.4.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccQy38So.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lm] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [--pmem-wrap-around=8k] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_b436b] ==> ignore
+    arg [-L/usr/lib/gcc/avr/5.4.0] ==> dir [/usr/lib/gcc/avr/5.4.0]
+    arg [-L/usr/lib/gcc/avr/5.4.0/../../../avr/lib] ==> dir [/usr/lib/gcc/avr/5.4.0/../../../avr/lib]
+    arg [--gc-sections] ==> ignore
+    arg [-lm] ==> lib [m]
+    arg [CMakeFiles/cmTC_b436b.dir/CMakeCCompilerABI.c.obj] ==> ignore
+    arg [--start-group] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lm] ==> lib [m]
+    arg [-lc] ==> lib [c]
+    arg [--end-group] ==> ignore
+  collapse library dir [/usr/lib/gcc/avr/5.4.0] ==> [/usr/lib/gcc/avr/5.4.0]
+  collapse library dir [/usr/lib/gcc/avr/5.4.0/../../../avr/lib] ==> [/usr/lib/avr/lib]
+  implicit libs: [m;gcc;m;c]
+  implicit dirs: [/usr/lib/gcc/avr/5.4.0;/usr/lib/avr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a520d/fast"
+make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_a520d.dir/build.make CMakeFiles/cmTC_a520d.dir/build
+make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a520d.dir/feature_tests.c.obj
+/usr/bin/avr-gcc   -g -Os       -mcall-prologues -ffunction-sections -fdata-sections    -std=c11 -o CMakeFiles/cmTC_a520d.dir/feature_tests.c.obj   -c /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/feature_tests.c
+Linking C executable cmTC_a520d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a520d.dir/link.txt --verbose=1
+/usr/bin/avr-gcc -g -Os       -mcall-prologues -ffunction-sections -fdata-sections   -Wl,--gc-sections -lm  CMakeFiles/cmTC_a520d.dir/feature_tests.c.obj  -o cmTC_a520d 
+make[5]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+
+
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e4730/fast"
+make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_e4730.dir/build.make CMakeFiles/cmTC_e4730.dir/build
+make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e4730.dir/feature_tests.c.obj
+/usr/bin/avr-gcc   -g -Os       -mcall-prologues -ffunction-sections -fdata-sections    -std=c99 -o CMakeFiles/cmTC_e4730.dir/feature_tests.c.obj   -c /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/feature_tests.c
+Linking C executable cmTC_e4730
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e4730.dir/link.txt --verbose=1
+/usr/bin/avr-gcc -g -Os       -mcall-prologues -ffunction-sections -fdata-sections   -Wl,--gc-sections -lm  CMakeFiles/cmTC_e4730.dir/feature_tests.c.obj  -o cmTC_e4730 
+make[5]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+
+
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d2e4e/fast"
+make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d2e4e.dir/build.make CMakeFiles/cmTC_d2e4e.dir/build
+make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d2e4e.dir/feature_tests.c.obj
+/usr/bin/avr-gcc   -g -Os       -mcall-prologues -ffunction-sections -fdata-sections    -std=c90 -o CMakeFiles/cmTC_d2e4e.dir/feature_tests.c.obj   -c /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/feature_tests.c
+Linking C executable cmTC_d2e4e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d2e4e.dir/link.txt --verbose=1
+/usr/bin/avr-gcc -g -Os       -mcall-prologues -ffunction-sections -fdata-sections   -Wl,--gc-sections -lm  CMakeFiles/cmTC_d2e4e.dir/feature_tests.c.obj  -o cmTC_d2e4e 
+make[5]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_02f34/fast"
+make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_02f34.dir/build.make CMakeFiles/cmTC_02f34.dir/build
+make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_02f34.dir/testCXXCompiler.cxx.obj
+/usr/bin/avr-g++    -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions    -o CMakeFiles/cmTC_02f34.dir/testCXXCompiler.cxx.obj -c /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_02f34
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02f34.dir/link.txt --verbose=1
+/usr/bin/avr-g++  -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions   -Wl,--gc-sections -lm  CMakeFiles/cmTC_02f34.dir/testCXXCompiler.cxx.obj  -o cmTC_02f34 
+make[5]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dbde6/fast"
+make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_dbde6.dir/build.make CMakeFiles/cmTC_dbde6.dir/build
+make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_dbde6.dir/CMakeCXXCompilerABI.cpp.obj
+/usr/bin/avr-g++    -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions    -o CMakeFiles/cmTC_dbde6.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_dbde6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dbde6.dir/link.txt --verbose=1
+/usr/bin/avr-g++  -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions   -Wl,--gc-sections -lm -v CMakeFiles/cmTC_dbde6.dir/CMakeCXXCompilerABI.cpp.obj  -o cmTC_dbde6 
+Using built-in specs.
+Reading specs from /usr/lib/gcc/avr/5.4.0/device-specs/specs-avr2
+COLLECT_GCC=/usr/bin/avr-g++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/avr/5.4.0/lto-wrapper
+Target: avr
+Configured with: ../gcc/configure -v --enable-languages=c,c++ --prefix=/usr/lib --infodir=/usr/share/info --mandir=/usr/share/man --bindir=/usr/bin --libexecdir=/usr/lib --libdir=/usr/lib --enable-shared --with-system-zlib --enable-long-long --enable-nls --without-included-gettext --disable-libssp --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=avr CFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ' CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2' CXXFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ' FCFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong' FFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong' GCJFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong' LDFLAGS='-Wl,-Bsymbolic-functions -Wl,-z,relro' OBJCFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ' OBJCXXFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat '
+Thread model: single
+gcc version 5.4.0 (GCC) 
+COMPILER_PATH=/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/:/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/:/usr/lib/gcc/avr/5.4.0/../../../avr/bin/
+LIBRARY_PATH=/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/5.4.0/../../../avr/lib/
+COLLECT_GCC_OPTIONS='-g' '-Os' '-mcall-prologues' '-ffunction-sections' '-fdata-sections' '-fno-exceptions' '-v' '-o' 'cmTC_dbde6' '-specs=device-specs/specs-avr2'
+ /usr/lib/gcc/avr/5.4.0/collect2 -plugin /usr/lib/gcc/avr/5.4.0/liblto_plugin.so -plugin-opt=/usr/lib/gcc/avr/5.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccU0piDh.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_dbde6 -L/usr/lib/gcc/avr/5.4.0 -L/usr/lib/gcc/avr/5.4.0/../../../avr/lib --gc-sections CMakeFiles/cmTC_dbde6.dir/CMakeCXXCompilerABI.cpp.obj -lgcc -lm --start-group -lgcc -lm -lc --end-group
+make[5]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(avr-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_dbde6/fast"]
+  ignore line: [make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_dbde6.dir/build.make CMakeFiles/cmTC_dbde6.dir/build]
+  ignore line: [make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_dbde6.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [/usr/bin/avr-g++    -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions    -o CMakeFiles/cmTC_dbde6.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_dbde6]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dbde6.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/avr-g++  -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions   -Wl,--gc-sections -lm -v CMakeFiles/cmTC_dbde6.dir/CMakeCXXCompilerABI.cpp.obj  -o cmTC_dbde6 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [Reading specs from /usr/lib/gcc/avr/5.4.0/device-specs/specs-avr2]
+  ignore line: [COLLECT_GCC=/usr/bin/avr-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/avr/5.4.0/lto-wrapper]
+  ignore line: [Target: avr]
+  ignore line: [Configured with: ../gcc/configure -v --enable-languages=c,c++ --prefix=/usr/lib --infodir=/usr/share/info --mandir=/usr/share/man --bindir=/usr/bin --libexecdir=/usr/lib --libdir=/usr/lib --enable-shared --with-system-zlib --enable-long-long --enable-nls --without-included-gettext --disable-libssp --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=avr CFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ' CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2' CXXFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ' FCFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong' FFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong' GCJFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong' LDFLAGS='-Wl,-Bsymbolic-functions -Wl,-z,relro' OBJCFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ' OBJCXXFLAGS='-g -O2 -fdebug-prefix-map=/build/gcc-avr-xTm33B/gcc-avr-5.4.0+Atmel3.6.0=. -fstack-protector-strong -Wformat ']
+  ignore line: [Thread model: single]
+  ignore line: [gcc version 5.4.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/:/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/:/usr/lib/gcc/avr/5.4.0/../../../avr/bin/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/avr/5.4.0/:/usr/lib/gcc/avr/5.4.0/../../../avr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-g' '-Os' '-mcall-prologues' '-ffunction-sections' '-fdata-sections' '-fno-exceptions' '-v' '-o' 'cmTC_dbde6' '-specs=device-specs/specs-avr2']
+  link line: [ /usr/lib/gcc/avr/5.4.0/collect2 -plugin /usr/lib/gcc/avr/5.4.0/liblto_plugin.so -plugin-opt=/usr/lib/gcc/avr/5.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccU0piDh.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_dbde6 -L/usr/lib/gcc/avr/5.4.0 -L/usr/lib/gcc/avr/5.4.0/../../../avr/lib --gc-sections CMakeFiles/cmTC_dbde6.dir/CMakeCXXCompilerABI.cpp.obj -lgcc -lm --start-group -lgcc -lm -lc --end-group]
+    arg [/usr/lib/gcc/avr/5.4.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/avr/5.4.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/avr/5.4.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccU0piDh.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lm] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [--pmem-wrap-around=8k] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_dbde6] ==> ignore
+    arg [-L/usr/lib/gcc/avr/5.4.0] ==> dir [/usr/lib/gcc/avr/5.4.0]
+    arg [-L/usr/lib/gcc/avr/5.4.0/../../../avr/lib] ==> dir [/usr/lib/gcc/avr/5.4.0/../../../avr/lib]
+    arg [--gc-sections] ==> ignore
+    arg [CMakeFiles/cmTC_dbde6.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lm] ==> lib [m]
+    arg [--start-group] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lm] ==> lib [m]
+    arg [-lc] ==> lib [c]
+    arg [--end-group] ==> ignore
+  collapse library dir [/usr/lib/gcc/avr/5.4.0] ==> [/usr/lib/gcc/avr/5.4.0]
+  collapse library dir [/usr/lib/gcc/avr/5.4.0/../../../avr/lib] ==> [/usr/lib/avr/lib]
+  implicit libs: [gcc;m;gcc;m;c]
+  implicit dirs: [/usr/lib/gcc/avr/5.4.0;/usr/lib/avr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++1z] compiler features compiled with the following output:
+Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_74dd1/fast"
+make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_74dd1.dir/build.make CMakeFiles/cmTC_74dd1.dir/build
+make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_74dd1.dir/feature_tests.cxx.obj
+/usr/bin/avr-g++    -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions    -std=c++1z -o CMakeFiles/cmTC_74dd1.dir/feature_tests.cxx.obj -c /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_74dd1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_74dd1.dir/link.txt --verbose=1
+/usr/bin/avr-g++  -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions   -Wl,--gc-sections -lm  CMakeFiles/cmTC_74dd1.dir/feature_tests.cxx.obj  -o cmTC_74dd1 
+make[5]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+
+
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_28143/fast"
+make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_28143.dir/build.make CMakeFiles/cmTC_28143.dir/build
+make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_28143.dir/feature_tests.cxx.obj
+/usr/bin/avr-g++    -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions    -std=c++14 -o CMakeFiles/cmTC_28143.dir/feature_tests.cxx.obj -c /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_28143
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_28143.dir/link.txt --verbose=1
+/usr/bin/avr-g++  -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions   -Wl,--gc-sections -lm  CMakeFiles/cmTC_28143.dir/feature_tests.cxx.obj  -o cmTC_28143 
+make[5]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+
+
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9dcf9/fast"
+make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_9dcf9.dir/build.make CMakeFiles/cmTC_9dcf9.dir/build
+make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_9dcf9.dir/feature_tests.cxx.obj
+/usr/bin/avr-g++    -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions    -std=c++11 -o CMakeFiles/cmTC_9dcf9.dir/feature_tests.cxx.obj -c /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_9dcf9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9dcf9.dir/link.txt --verbose=1
+/usr/bin/avr-g++  -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions   -Wl,--gc-sections -lm  CMakeFiles/cmTC_9dcf9.dir/feature_tests.cxx.obj  -o cmTC_9dcf9 
+make[5]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+
+
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f4f5d/fast"
+make[4]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_f4f5d.dir/build.make CMakeFiles/cmTC_f4f5d.dir/build
+make[5]: Entering directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f4f5d.dir/feature_tests.cxx.obj
+/usr/bin/avr-g++    -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions    -std=c++98 -o CMakeFiles/cmTC_f4f5d.dir/feature_tests.cxx.obj -c /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_f4f5d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f4f5d.dir/link.txt --verbose=1
+/usr/bin/avr-g++  -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions   -Wl,--gc-sections -lm  CMakeFiles/cmTC_f4f5d.dir/feature_tests.cxx.obj  -o cmTC_f4f5d 
+make[5]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+make[4]: Leaving directory '/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build/trucky_arduino/firmware/CMakeFiles/CMakeTmp'
+
+

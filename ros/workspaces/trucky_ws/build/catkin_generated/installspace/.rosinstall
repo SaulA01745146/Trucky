@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/install/setup.sh

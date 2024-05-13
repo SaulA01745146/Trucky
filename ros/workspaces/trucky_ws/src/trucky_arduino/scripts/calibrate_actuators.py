@@ -66,7 +66,7 @@ def getMotorDeadZoneState():
     rospy.loginfo("Correct Pairing and Automated Operation Mode.")
 
     mean_motor_dead_zone_pwm_high_time = 0
-    for _ in range(10):
+    for _ in range(1):
         curr_motor_pwm_high_time = motor_pairing_pwm_high_time
 
         actuators_cmd = ActuatorsState()
@@ -214,13 +214,13 @@ def getServoCharacterization():
 
     regModel = list(map(linealRegFunc, x))
 
-    plt.grid()
-    plt.scatter(x, y)
-    plt.plot(x, regModel, c = 'r')
-    plt.text(min(x), max(y), "y = " + str(slope) + " * x  " + ("- " if intercept < 0 else "+ " ) + str(-1 * intercept if intercept < 0 else intercept))
-    plt.xlabel("PWM High Time (us)")
-    plt.ylabel("Steering Angle (rads)")
-    plt.show()     
+    # plt.grid()
+    # plt.scatter(x, y)
+    # plt.plot(x, regModel, c = 'r')
+    # plt.text(min(x), max(y), "y = " + str(slope) + " * x  " + ("- " if intercept < 0 else "+ " ) + str(-1 * intercept if intercept < 0 else intercept))
+    # plt.xlabel("PWM High Time (us)")
+    # plt.ylabel("Steering Angle (rads)")
+    # plt.show()     
 
     return slope, intercept
 

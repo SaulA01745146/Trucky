@@ -1,0 +1,2 @@
+ackermann-drive-teleop:trucky_arduino:trucky_custom_msgs
+-DCATKIN_DEVEL_PREFIX=/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/devel -DCMAKE_INSTALL_PREFIX=/home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/install -G Unix Makefiles

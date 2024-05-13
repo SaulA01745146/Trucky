@@ -1,6 +1,6 @@
 arduino_1:
   baud: 115200 
-  port: "/dev/ttyUSB0"
+  port: "/dev/ttyUSB2"
 
 arduino_2:
   baud: 115200 
