@@ -11,7 +11,7 @@ def calculate_speed(steering_angle):
 
     # De ang de giro a PWM 
     if steering_angle == 0:
-        return 1450 # Si el ángulo de giro es cero, la velocidad esta en la Dead Zone
+        return 1450 # Si el angulo de giro es cero, la velocidad esta en la Dead Zone
     elif steering_angle > 0:
         return int((steering_angle / 1.5) * (motor_high_time_max - motor_dead_zone_time) + motor_dead_zone_time)
     else:

@@ -7,17 +7,21 @@ from std_msgs.msg import Int64
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 
+bridge=CvBridge()
 
+image=np.zeros((480,640,3),dtype=np.uint8)
+height=480
+width=640
 def wrap_to_Pi(theta):
     result = np.fmod((theta + np.pi),(2 * np.pi))
     if(result < 0):
         result += 2 * np.pi
     return result - np.pi
 
-def callback_image(self, data):
+def callback_image(data):
         global image
         try:
-            image = self.bridge.imgmsg_to_cv2(data, "bgr8")
+            image = bridge.imgmsg_to_cv2(data, "bgr8")
         except CvBridgeError as e:
             print(e)
 
