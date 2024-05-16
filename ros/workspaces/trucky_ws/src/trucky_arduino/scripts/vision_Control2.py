@@ -65,6 +65,7 @@ def main():
 
     try:
         while not rospy.is_shutdown():
+            print("while")
             height, width, _ = image.shape
             roi_height = 100  # Altura de la ROI
             roi_width = 400   # Ancho de la ROI
@@ -93,7 +94,7 @@ def main():
             td = target_distance(lines) #Target_distance
 
             if lines is not None:
-                #print('veo linea')
+                print('veo linea')
                 total_rho = 0
                 total_theta = 0
                 num_lines = len(lines)

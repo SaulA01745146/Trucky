@@ -23,7 +23,7 @@ class VideoCamera:
         if self.out is None:
             height, width, _ = cv_image.shape
             fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-            output_path = os.path.join(os.getcwd(), 'output2.mp4')
+            output_path = os.path.join(os.getcwd(), 'output.mp4')
             self.out = cv2.VideoWriter(output_path, fourcc, 20.0, (width, height))
 
         self.out.write(cv_image)

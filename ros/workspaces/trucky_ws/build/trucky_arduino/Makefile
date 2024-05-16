@@ -92,28 +92,6 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -134,6 +112,28 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,94 +168,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators-upload.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators-upload.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators-upload.dir/rule
+trucky_arduino/CMakeFiles/trucky_arduino_ros_lib.dir/rule:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/trucky_arduino_ros_lib.dir/rule
+.PHONY : trucky_arduino/CMakeFiles/trucky_arduino_ros_lib.dir/rule
 
 # Convenience name for target.
-trucky_arduino_firmware_actuators-upload: trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators-upload.dir/rule
+trucky_arduino_ros_lib: trucky_arduino/CMakeFiles/trucky_arduino_ros_lib.dir/rule
 
-.PHONY : trucky_arduino_firmware_actuators-upload
+.PHONY : trucky_arduino_ros_lib
 
 # fast build rule for target.
-trucky_arduino_firmware_actuators-upload/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators-upload.dir/build.make trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators-upload.dir/build
-.PHONY : trucky_arduino_firmware_actuators-upload/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators.dir/rule
-
-# Convenience name for target.
-trucky_arduino_firmware_actuators: trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators.dir/rule
-
-.PHONY : trucky_arduino_firmware_actuators
-
-# fast build rule for target.
-trucky_arduino_firmware_actuators/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators.dir/build.make trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators.dir/build
-.PHONY : trucky_arduino_firmware_actuators/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors.dir/rule
-
-# Convenience name for target.
-trucky_arduino_firmware_sensors: trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors.dir/rule
-
-.PHONY : trucky_arduino_firmware_sensors
-
-# fast build rule for target.
-trucky_arduino_firmware_sensors/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors.dir/build.make trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors.dir/build
-.PHONY : trucky_arduino_firmware_sensors/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_nodejs.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosserial_msgs_generate_messages_nodejs: trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosserial_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosserial_msgs_generate_messages_nodejs/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_nodejs.dir/build.make trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosserial_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_lisp.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_lisp.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosserial_msgs_generate_messages_lisp: trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosserial_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosserial_msgs_generate_messages_lisp/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_lisp.dir/build.make trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_lisp.dir/build
-.PHONY : rosserial_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_eus.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_eus.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosserial_msgs_generate_messages_eus: trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosserial_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosserial_msgs_generate_messages_eus/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_eus.dir/build.make trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_eus.dir/build
-.PHONY : rosserial_msgs_generate_messages_eus/fast
+trucky_arduino_ros_lib/fast:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/trucky_arduino_ros_lib.dir/build.make trucky_arduino/CMakeFiles/trucky_arduino_ros_lib.dir/build
+.PHONY : trucky_arduino_ros_lib/fast
 
 # Convenience name for target.
 trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_cpp.dir/rule:
@@ -271,51 +196,6 @@ rosserial_msgs_generate_messages_cpp: trucky_arduino/CMakeFiles/rosserial_msgs_g
 rosserial_msgs_generate_messages_cpp/fast:
 	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_cpp.dir/build.make trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_cpp.dir/build
 .PHONY : rosserial_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_py.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_py.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-rosserial_msgs_generate_messages_py: trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_py.dir/rule
-
-.PHONY : rosserial_msgs_generate_messages_py
-
-# fast build rule for target.
-rosserial_msgs_generate_messages_py/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_py.dir/build.make trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_py.dir/build
-.PHONY : rosserial_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/trucky_arduino_ros_lib.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/trucky_arduino_ros_lib.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/trucky_arduino_ros_lib.dir/rule
-
-# Convenience name for target.
-trucky_arduino_ros_lib: trucky_arduino/CMakeFiles/trucky_arduino_ros_lib.dir/rule
-
-.PHONY : trucky_arduino_ros_lib
-
-# fast build rule for target.
-trucky_arduino_ros_lib/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/trucky_arduino_ros_lib.dir/build.make trucky_arduino/CMakeFiles/trucky_arduino_ros_lib.dir/build
-.PHONY : trucky_arduino_ros_lib/fast
 
 # Convenience name for target.
 trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_nodejs.dir/rule:
@@ -348,19 +228,34 @@ rosserial_arduino_generate_messages_py/fast:
 .PHONY : rosserial_arduino_generate_messages_py/fast
 
 # Convenience name for target.
-trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_lisp.dir/rule:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_lisp.dir/rule
+.PHONY : trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_py: trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+rosserial_msgs_generate_messages_lisp: trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : sensor_msgs_generate_messages_py
+.PHONY : rosserial_msgs_generate_messages_lisp
 
 # fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
+rosserial_msgs_generate_messages_lisp/fast:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_lisp.dir/build.make trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_lisp.dir/build
+.PHONY : rosserial_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors.dir/rule:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors.dir/rule
+.PHONY : trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors.dir/rule
+
+# Convenience name for target.
+trucky_arduino_firmware_sensors: trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors.dir/rule
+
+.PHONY : trucky_arduino_firmware_sensors
+
+# fast build rule for target.
+trucky_arduino_firmware_sensors/fast:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors.dir/build.make trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors.dir/build
+.PHONY : trucky_arduino_firmware_sensors/fast
 
 # Convenience name for target.
 trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/rule:
@@ -393,34 +288,64 @@ rosserial_arduino_generate_messages_cpp/fast:
 .PHONY : rosserial_arduino_generate_messages_cpp/fast
 
 # Convenience name for target.
-trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_eus.dir/rule:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_eus.dir/rule
+.PHONY : trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_nodejs: trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+rosserial_arduino_generate_messages_eus: trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_eus.dir/rule
 
-.PHONY : sensor_msgs_generate_messages_nodejs
+.PHONY : rosserial_arduino_generate_messages_eus
 
 # fast build rule for target.
-sensor_msgs_generate_messages_nodejs/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-.PHONY : sensor_msgs_generate_messages_nodejs/fast
+rosserial_arduino_generate_messages_eus/fast:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_eus.dir/build.make trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_eus.dir/build
+.PHONY : rosserial_arduino_generate_messages_eus/fast
 
 # Convenience name for target.
-trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors-upload.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors-upload.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors-upload.dir/rule
+trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_eus.dir/rule:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_eus.dir/rule
+.PHONY : trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-trucky_arduino_firmware_sensors-upload: trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors-upload.dir/rule
+rosserial_msgs_generate_messages_eus: trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_eus.dir/rule
 
-.PHONY : trucky_arduino_firmware_sensors-upload
+.PHONY : rosserial_msgs_generate_messages_eus
 
 # fast build rule for target.
-trucky_arduino_firmware_sensors-upload/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors-upload.dir/build.make trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors-upload.dir/build
-.PHONY : trucky_arduino_firmware_sensors-upload/fast
+rosserial_msgs_generate_messages_eus/fast:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_eus.dir/build.make trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_eus.dir/build
+.PHONY : rosserial_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_nodejs.dir/rule
+.PHONY : trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+rosserial_msgs_generate_messages_nodejs: trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : rosserial_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+rosserial_msgs_generate_messages_nodejs/fast:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_nodejs.dir/build.make trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosserial_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_py.dir/rule:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_py.dir/rule
+.PHONY : trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+rosserial_msgs_generate_messages_py: trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_py.dir/rule
+
+.PHONY : rosserial_msgs_generate_messages_py
+
+# fast build rule for target.
+rosserial_msgs_generate_messages_py/fast:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_py.dir/build.make trucky_arduino/CMakeFiles/rosserial_msgs_generate_messages_py.dir/build
+.PHONY : rosserial_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 trucky_arduino/CMakeFiles/trucky_arduino_firmware.dir/rule:
@@ -438,124 +363,49 @@ trucky_arduino_firmware/fast:
 .PHONY : trucky_arduino_firmware/fast
 
 # Convenience name for target.
-trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors-upload.dir/rule:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors-upload.dir/rule
+.PHONY : trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors-upload.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_cpp: trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+trucky_arduino_firmware_sensors-upload: trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors-upload.dir/rule
 
-.PHONY : sensor_msgs_generate_messages_cpp
+.PHONY : trucky_arduino_firmware_sensors-upload
 
 # fast build rule for target.
-sensor_msgs_generate_messages_cpp/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-.PHONY : sensor_msgs_generate_messages_cpp/fast
+trucky_arduino_firmware_sensors-upload/fast:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors-upload.dir/build.make trucky_arduino/CMakeFiles/trucky_arduino_firmware_sensors-upload.dir/build
+.PHONY : trucky_arduino_firmware_sensors-upload/fast
 
 # Convenience name for target.
-trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators.dir/rule:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators.dir/rule
+.PHONY : trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_eus: trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+trucky_arduino_firmware_actuators: trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators.dir/rule
 
-.PHONY : sensor_msgs_generate_messages_eus
+.PHONY : trucky_arduino_firmware_actuators
 
 # fast build rule for target.
-sensor_msgs_generate_messages_eus/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
-.PHONY : sensor_msgs_generate_messages_eus/fast
+trucky_arduino_firmware_actuators/fast:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators.dir/build.make trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators.dir/build
+.PHONY : trucky_arduino_firmware_actuators/fast
 
 # Convenience name for target.
-trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_eus.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_eus.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_eus.dir/rule
+trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators-upload.dir/rule:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators-upload.dir/rule
+.PHONY : trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators-upload.dir/rule
 
 # Convenience name for target.
-rosserial_arduino_generate_messages_eus: trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_eus.dir/rule
+trucky_arduino_firmware_actuators-upload: trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators-upload.dir/rule
 
-.PHONY : rosserial_arduino_generate_messages_eus
+.PHONY : trucky_arduino_firmware_actuators-upload
 
 # fast build rule for target.
-rosserial_arduino_generate_messages_eus/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_eus.dir/build.make trucky_arduino/CMakeFiles/rosserial_arduino_generate_messages_eus.dir/build
-.PHONY : rosserial_arduino_generate_messages_eus/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make trucky_arduino/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_eus: trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_eus
-
-# fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_nodejs: trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f CMakeFiles/Makefile2 trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make trucky_arduino/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
+trucky_arduino_firmware_actuators-upload/fast:
+	cd /home/jetson/TruckyAVProject/ros/workspaces/trucky_ws/build && $(MAKE) -f trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators-upload.dir/build.make trucky_arduino/CMakeFiles/trucky_arduino_firmware_actuators-upload.dir/build
+.PHONY : trucky_arduino_firmware_actuators-upload/fast
 
 # Help Target
 help:
@@ -566,36 +416,26 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... install"
-	@echo "... trucky_arduino_firmware_actuators-upload"
-	@echo "... trucky_arduino_firmware_actuators"
-	@echo "... trucky_arduino_firmware_sensors"
-	@echo "... rosserial_msgs_generate_messages_nodejs"
-	@echo "... rosserial_msgs_generate_messages_lisp"
-	@echo "... rosserial_msgs_generate_messages_eus"
-	@echo "... rosserial_msgs_generate_messages_cpp"
-	@echo "... test"
-	@echo "... rosserial_msgs_generate_messages_py"
-	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... list_install_components"
+	@echo "... edit_cache"
 	@echo "... trucky_arduino_ros_lib"
+	@echo "... rosserial_msgs_generate_messages_cpp"
 	@echo "... rosserial_arduino_generate_messages_nodejs"
 	@echo "... rosserial_arduino_generate_messages_py"
-	@echo "... sensor_msgs_generate_messages_py"
+	@echo "... rosserial_msgs_generate_messages_lisp"
+	@echo "... trucky_arduino_firmware_sensors"
 	@echo "... rosserial_arduino_generate_messages_lisp"
 	@echo "... rosserial_arduino_generate_messages_cpp"
-	@echo "... sensor_msgs_generate_messages_nodejs"
-	@echo "... trucky_arduino_firmware_sensors-upload"
-	@echo "... trucky_arduino_firmware"
-	@echo "... sensor_msgs_generate_messages_cpp"
-	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... rebuild_cache"
 	@echo "... rosserial_arduino_generate_messages_eus"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... list_install_components"
-	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... edit_cache"
-	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... rosserial_msgs_generate_messages_eus"
+	@echo "... rosserial_msgs_generate_messages_nodejs"
+	@echo "... test"
+	@echo "... rosserial_msgs_generate_messages_py"
+	@echo "... trucky_arduino_firmware"
+	@echo "... trucky_arduino_firmware_sensors-upload"
+	@echo "... trucky_arduino_firmware_actuators"
+	@echo "... trucky_arduino_firmware_actuators-upload"
 .PHONY : help
 
 
