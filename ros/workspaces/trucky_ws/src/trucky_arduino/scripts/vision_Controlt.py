@@ -10,11 +10,114 @@ image=np.zeros((480,640,3),dtype=np.uint8)
 height=480
 width=640
 
-def wrap_to_Pi(theta):
-    result = np.fmod((theta + np.pi), (2 * np.pi))
-    if result < 0:
-        result += 2 * np.pi
-    return result - np.pi
+def ajuste_luz(gray):
+    luz_mean = np.mean(gray)
+    if luz_mean < 50:
+        #print("<50")
+        thMax = 255
+        thMin = 90
+    elif luz_mean < 100:
+        print("<100")
+        thMax = 255
+        thMin = 90
+    elif luz_mean < 150:
+        print("<150")
+        thMax = 255
+        thMin = 80
+    else:
+        print("<e")
+        thMax = 255
+        thMin = 70
+    return thMax, thMin
+
+def ajuste_canny(gray):
+    intensidad = np.mean(gray)
+    if intensidad < 50:
+        baja = 30
+        alta = 90
+    elif intensidad < 100:
+        baja = 50
+        alta = 150
+    elif intensidad < 150:
+        baja = 70
+        alta = 200
+    else:
+        baja = 90
+        alta = 250
+    return baja, alta
+
+def filtro_de_lineas(linesP, width):
+    left_lines = []
+    right_lines = []
+    for line in linesP:
+        x1, y1, x2, y2 = line[0]
+        slope = (y2 - y1) / (x2 - x1) if x2 != x1 else 0
+        if abs(slope) < 0.3:
+            continue
+        if slope < 0 and x1 < width / 2 and x2 < width / 2:
+            left_lines.append([x1, y1, x2, y2])
+        elif slope > 0 and x1 > width / 2 and x2 > width / 2:
+            right_lines.append([x1, y1, x2, y2])
+    return left_lines, right_lines
+
+def dib_lineas(image, lines, color=(0, 255, 0), thickness=2):
+    for line in lines:
+        x1, y1, x2, y2 = line
+        cv2.line(image, (x1, y1), (x2, y2), color, thickness)
+
+def lanes_error(img, left_lines, right_lines):
+    height, width, _ = img.shape
+    m_pix = 3.7 / 650  # Metros por pixel
+    middle_image = width / 2
+
+    if len(left_lines) == 0 and len(right_lines) > 0:
+        right_line = np.mean(right_lines, axis=0)
+        error = middle_image - (right_line[0] + right_line[2]) / 2  # Error en pixeles
+        target_distance = 30  # Distancia objetivo del borde derecho en cm
+        error_cm = error * m_pix  # Convertir error a cm
+        error_adjusted = error_cm - target_distance  # Ajustar error para mantener la distancia objetivo
+        return int(error_adjusted)
+
+    elif len(left_lines) > 0 and len(right_lines) == 0:
+        left_line = np.mean(left_lines, axis=0)
+        error = (left_line[0] + left_line[2]) / 2 - middle_image  # Error en pixeles
+        target_distance = 30  # Distancia objetivo del borde izquierdo en cm
+        error_cm = error * m_pix  # Convertir error a cm
+        error_adjusted = target_distance - error_cm  # Ajustar error para mantener la distancia objetivo
+        return int(error_adjusted)
+
+    elif len(left_lines) > 0 and len(right_lines) > 0:
+        left_lines = np.array(left_lines)
+        right_lines = np.array(right_lines)
+        left_f = np.polyfit(left_lines[:, 1], left_lines[:, 0], 2)
+        right_f = np.polyfit(right_lines[:, 1], right_lines[:, 0], 2)
+
+        left_lb = left_f[0] * height**2 + left_f[1] * height + left_f[2]
+        right_lb = right_f[0] * height**2 + right_f[1] * height + right_f[2]
+
+        center_lane = (left_lb + right_lb) / 2
+        error = middle_image - center_lane
+        print("center lane: ", center_lane, "middleimage: ",middle_image)
+
+        return int(error)
+
+    else:
+        return 0
+
+def steering_angle(error):
+    center_threshold = 20  # Umbral para centrar el robot
+    steering_gain = 0.1   # Ganancia del angulo de giro
+
+    if abs(error) < center_threshold:
+        return 1400  # Robot centrado
+    sa = steering_gain * error  # angulo de giro (Controlador proporcional)
+    sa_normalized = sa / center_threshold  # Normalizar de -1 a 1
+    pwm_range = 600  # Rango de PWM del servomotor (1600-1000)
+    center_pwm = 1400 
+    steering = center_pwm + (sa_normalized * pwm_range / 2)
+
+    # Valor dentro del rango [1000, 1600]
+    return int(max(min(steering, 1600), 1000))
 
 def callback_image(data):
     global image
@@ -22,49 +125,6 @@ def callback_image(data):
         image = bridge.imgmsg_to_cv2(data, "bgr8")
     except CvBridgeError as e:
         print(e)
-
-def target_distance(lines):
-    if lines is not None:
-        total_rho = 0
-        num_lines = len(lines)
-        for line in lines:
-            rho, _ = line[0]
-            total_rho += rho
-        avg_rho = total_rho / num_lines
-        return int(avg_rho)
-    else:
-        return 200  # Valor predeterminado si no se detectan las lineas.
-    
-def lanes_error(img, left_lines,right_lines):
-    height, width, _ = img.shape
-    m_pix = 3.7 / 650 #Metros por pixel
-    middle_image = width/2
-    y_base = height
-    left_f = np.polyfit(left_lines[:, 1], left_lines[:, 0], 2)
-    right_f = np.polyfit(right_lines[:, 1], right_lines[:, 0], 2)
-
-    left_lb = left_f[0] * y_base**2 + left_f[1]* y_base + left_f[2]
-    right_lb = right_f[0] * y_base**2 + right_f[1] * y_base + right_f[2]
-
-    centerLane = (left_lb + right_lb) / 2
-    error = (middle_image - centerLane) * m_pix * 100
-
-    return int(error)
-
-def steering_angle(error):
-    center_threshold = 20  # Umbral para centrar el robot, cambiar si se encuentra desalineado
-    steering_gain = 0.01   # Ganancia del angulo de giro
-
-    if abs(error) < center_threshold:
-        return 1400  # Robot centrado, no hay angulo de giro
-    sa = steering_gain * error  # Angulo de giro (Controlador proporcional)
-    sa_normalized = sa / center_threshold  # Se normaliza de -1 a 1
-    pwm_range = 600  # Rango de PWM del servomotor (1600-1000)
-    center_pwm = 1400 
-    steering = center_pwm + (sa_normalized * pwm_range / 2)
-
-    # Valor dentro del rango [1000, 1600]
-    return int(max(min(steering, 1600), 1000))
 
 def main():
     global image
@@ -80,67 +140,70 @@ def main():
     try:
         while not rospy.is_shutdown():
             height, width, _ = image.shape
-	    	
-            '''
-            roi_height = 200  # Altura de la ROI
-            roi_width = 1400   # Ancho de la ROI
-            x = int((width - roi_width) / 2)  # Coordenada x ROI
-            y = height - roi_height - 75      # Coordenada y ROI
 
-            roi = image[y:y+roi_height, x:x+roi_width]
-            '''
-
-            # ************** TRAPECIO ****************************
-            #PUNTOS DEL TRAPECIO 
-            vertices = np.array([[(200,height),(width -200, height),
-                                  (width - 1400, height //2 + 70),
-                                  (1400, height //2 +70)]], dtype = np.int32)
+            lower_offset = 600
+            upper_offset = 50
+            trap_height = height // 1.5
+            vertices = np.array([[(width // 4 - upper_offset, height),
+                                (3 * width // 4 + upper_offset, height),
+                                (3 * width // 4 - 100 + lower_offset, trap_height),
+                                (width // 4 + 100 - lower_offset, trap_height)]], dtype=np.int32)
             
-            #TRAPECIO
             mascara = np.zeros_like(image)
             cv2.fillPoly(mascara, vertices, (255, 255, 255))
-
-            imMask = cv2.bitwise_and(image, mascara) # Mascara en la imagen 
+            imMask = cv2.bitwise_and(image, mascara)
 
             gray = cv2.cvtColor(imMask, cv2.COLOR_BGR2GRAY)
-            medianblur = cv2.medianBlur(gray, 1)
-            
-            thMax = 255
-            thMin = 90 #MODIFICAR SI NO DETECTA LINEA 
+            clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+            gray = clahe.apply(gray)
+            se = cv2.getStructuringElement(cv2.MORPH_RECT, (8, 8))
+            bg = cv2.morphologyEx(gray, cv2.MORPH_DILATE, se)
+            gradient = cv2.morphologyEx(gray, cv2.MORPH_GRADIENT, bg)
+            gray = cv2.divide(gray, gradient, scale=255)
+
+            medianblur = cv2.GaussianBlur(gray, (5, 5), sigmaX=33, sigmaY=33)
+            thMax, thMin = ajuste_luz(gray)
             _, thresh = cv2.threshold(medianblur, thMin, thMax, cv2.THRESH_BINARY)
 
-            #edges_v = cv2.filter2D(thresh, -1, kernel_v)
-            #edges_h = cv2.filter2D(thresh, -1, kernel_h)
+            sobelx = cv2.Sobel(thresh, cv2.CV_64F, 1, 0, ksize=3)
+            sobely = cv2.Sobel(thresh, cv2.CV_64F, 0, 1, ksize=3)
+            sobel_comb = cv2.sqrt(sobelx**2 + sobely**2)
+            sobel_comb = cv2.convertScaleAbs(sobel_comb)
 
-            #edges = cv2.addWeighted(edges_v, 0.5, edges_h, 0.5, 0)
-            #erode = cv2.bitwise_not(thresh, edges)
-            #kernel = np.ones((5,5), np.uint8)
-            #dil = cv2.dilate(thresh,kernel, iterations=1)
-            #bina = cv2.bitwise_not(erode)
-            #contours, _ = cv2.findContours(bina, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+            baja, alta = ajuste_canny(gray)
+            edges = cv2.Canny(sobel_comb, baja, alta)
+            kernel = np.ones((9, 9), np.uint8)
+            edges = cv2.morphologyEx(edges, cv2.MORPH_CLOSE, kernel)
+
+            contours, _ = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+            contorno = cv2.drawContours(np.zeros_like(edges), contours, -1, (255, 255, 255), 1)
+
+            rho = 2
+            theta = np.pi / 100
+            threshold_lines = 50
+            min_line_length = 50
+            max_line_gap = 50
+
+            linesP = cv2.HoughLinesP(contorno, rho, theta, threshold_lines, np.array([]), min_line_length, max_line_gap)
             
-            
-            lines = cv2.HoughLines(thresh, 1, np.pi/180, 77)
-            if lines is not None:
-                left_lines = []
-                right_lines = []
-                
-                for line in lines:
-                    rho, theta = line[0]
-                    x1, y1, x2, y2 = int(rho * np.cos(theta)), int(rho * np.sin(theta)), \
-                                     int((rho - 1000 * np.sin(theta)) * np.cos(theta)), int((rho + 1000 * np.cos(theta)) * np.sin(theta))
-                    if x1 < width / 2:
-                        left_lines.append([x1, y1])
+            if linesP is not None:
+                left_lines, right_lines = filtro_de_lineas(linesP, width)
+                if len(left_lines) > 0 or len(right_lines) > 0:
+                    if len(left_lines) > 0:
+                        dib_lineas(image, left_lines, color=(0, 0, 255), thickness=2)
+                    if len(right_lines) > 0:
+                        dib_lineas(image, right_lines, color=(0, 255, 0), thickness=2)
+                    
+                    error = lanes_error(image, left_lines, right_lines)
+                    steering = steering_angle(error)
+                    print("error: ",error)
+                    print("Steering Angle:", steering)
+                                        
+                    if steering != 1445:
+                        pub_steering_angle.publish(Int64(steering))
                     else:
-                        right_lines.append([x1, y1])
+                        pub_steering_angle.publish(Int64(0))
 
-                if len(left_lines) > 0 and len(right_lines) > 0:
-                    left_lines = np.array(left_lines)
-                    right_lines = np.array(right_lines)
-                    error = lanes_error(image, left_lines, right_lines) #AQUI SE LLAMA A LA FUNCION LANE_ERROR
-                    print("Error:",error)
-                    print("steering_angle", steering_angle(error))
-                    pub_steering_angle.publish(Int64(steering_angle(error)))
                     
 
                 else:
@@ -149,76 +212,19 @@ def main():
             else:
                 print("No hay lineas")
                 pub_steering_angle.publish(Int64(0))
-                '''
-                    a = np.cos(theta)
-                    b = np.sin(theta)
-                    x0 = a * rho
-                    x_mid = int(x0 + target_distance(lines) * (-b))
-                    line_positions.append(x_mid)
 
-                if len(line_positions) >= 2:
-                    line_positions.sort(key=lambda pos: abs(pos - (roi_width // 2)))
-
-                    closest_line_1 = line_positions[0]
-                    closest_line_2 = line_positions[1]
-
-                    center_between_lines = (closest_line_1 + closest_line_2) // 2
-                    distance_to_center = center_between_lines - (roi_width // 2)
-                    
-                    print("distance_to_center", distance_to_center)
-
-                    if distance_to_center >  0:
-                        print("Mover a la derecha para mantener el centro")
-                    elif distance_to_center < 0:
-                        print("Mover a la izquierda para mantener el centro")
-                    else:
-                        print("Manteniendo el centro")
-                        
-                    print(steering_angle(center_between_lines))
-
-                    pub_steering_angle.publish(Int64(steering_angle(center_between_lines)))
-
-                elif len(line_positions) == 1:
-                    closest_line = line_positions[0]
-                    distance_to_line = abs(closest_line - (roi_width // 2))
-                    distance_in_pixels = 5  # 1 cm corresponde a 5 pixeles
-
-                    if distance_to_line > distance_in_pixels:
-                        if closest_line < roi_width // 2:
-                            print("Mover a la izquierda para mantener 1 cm")
-                        else:
-                            print("Mover a la derecha para mantener 1 cm")
-                    else:
-                        print("Manteniendo distancia de 1 cm")
-                    
-
-                    pub_steering_angle.publish(Int64(steering_angle(closest_line)))
-            else:
-                print("No se detectaron lineas")
-                pub_steering_angle.publish(Int64(0))
-            '''
             try:
-                edges_msg=bridge.cv2_to_imgmsg(thresh, "mono8")
+                edges_msg = bridge.cv2_to_imgmsg(image, "rgb8")
                 pubimage.publish(edges_msg)
             except CvBridgeError as e:
                 print(e)
-            
-                
-            #cv2.imshow("camino",roi)
-            
 
     except rospy.ROSInterruptException:
         pass
 
 if __name__ == '__main__':
-    kernel_v = np.array([[1, 0, -1],
-                         [1, 0, -1],
-                         [1, 0, -1]])
-
-    kernel_h = np.array([[1, 1, 1],
-                         [0, 0, 0],
-                         [-1, -1, -1]])
     bridge = CvBridge()
     main()
+
 
 

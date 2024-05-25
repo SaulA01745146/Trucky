@@ -4,7 +4,7 @@ from std_msgs.msg import Int64
 from trucky_custom_msgs.msg import ActuatorsState
 
 def calculate_speed(steering_angle):
-    PWM_no_line = 1400  # PWM cuando no se detecta linea 
+    PWM_no_line = 0  # PWM cuando no se detecta linea 
     PWM_min = 1550      # PWM minimo si hay linea 
     PWM_max = 1600      # PWM maximo si detecta linea
     
