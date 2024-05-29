@@ -48,7 +48,7 @@ def stop():
 
 def check_obstacle(event):
     print("CHECK OBSTACLE")
-    if robot_view['front'] <= 0.5:
+    if robot_view['front'] <= 0.7:
         print("stop")
         stop()
     else:

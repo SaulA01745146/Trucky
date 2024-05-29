@@ -2,11 +2,13 @@
 <launch>   
     <include file="$(find realsense2_camera)/launch/rs_camera.launch" />
     
-    <!--include file="$(find rplidar_ros)/launch/rplidar.launch" /-->
+    <include file="$(find rplidar_ros)/launch/rplidar.launch" />
     
-    <node pkg="trucky_arduino" type="prueba_kal4.py" name="vision_kal" output="screen"/>
+    <node pkg="trucky_arduino" type="prueba_kal4.py" name="vision_kal" />
 
-    <!--node pkg="trucky_arduino" type="trucky_lidar.py" name="lidar" /-->
+    <node pkg="trucky_arduino" type="trucky_lidar.py" name="lidar"  />
+    
+    <node pkg="trucky_arduino" type="blob_imagen.py" name="semaforo"  />
 
-    <node pkg="trucky_arduino" type="vel_lidar.py" name="velocidad"/>
+    <node pkg="trucky_arduino" type="vel_lidar.py" name="velocidad" output="screen"/>
 </launch>

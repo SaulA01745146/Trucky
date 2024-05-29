@@ -84,27 +84,28 @@ def calcular_curvatura(lineas):
 def steering_angle(predicted_x, width, curvatura, single_side=None):
     center_threshold = 20  # Umbral para centrar el robot
     min_steering_gain = 0.5  # Ganancia minima del angulo de direccion
-    max_steering_gain = 2  # Ganancia maxima del angulo de direccion
+    max_steering_gain = 3.5  # Ganancia maxima del angulo de direccion
 
     middle_image = width / 2
     target_distance = 100  # Distancia objetivo desde el borde del carril en pixeles
 
     if single_side == 'left':
-        print('predicted_x_sololeft', predicted_x)
+        #print('predicted_x_sololeft', predicted_x)
         error = middle_image - predicted_x - target_distance
 
     elif single_side == 'right':
-        print('predicted_x_soloright', predicted_x)
+        #print('predicted_x_soloright', predicted_x)
         error = middle_image - predicted_x + target_distance
         
     else:
-        print('predicted_x', predicted_x)
+        #print('predicted_x', predicted_x)
         error = middle_image - predicted_x
 
-    print("error", error)
+    #print("error", error)
     
     # Ajustar la ganancia del angulo de direccion en funcion de la curvatura
     steering_gain = min_steering_gain + (max_steering_gain - min_steering_gain) * min(curvatura / 1000, 1)
+    #print("steering_gain", steering_gain)
 
     if abs(error) < center_threshold:
         return 1400  # Robot centrado
@@ -113,12 +114,12 @@ def steering_angle(predicted_x, width, curvatura, single_side=None):
         sa = 1350 - steering_gain * abs(error)
         sa = max(sa, 1000)  # Asegurar que este dentro del rango [1000, 1400]
         sa=round(sa)
-        print("derecha", sa)
+        #print("derecha", sa)
     else:  # Prediccion a la izquierda
         sa = 1480 + steering_gain * abs(error)
         sa = min(sa, 1800)  # Asegurar que este dentro del rango [1400, 1800]
         sa=round(sa)
-        print("izquierda", sa)
+        #print("izquierda", sa)
 
     return int(sa)
 
@@ -230,7 +231,7 @@ def main():
 
                     if sa != 1445:
                         pub_steering_angle.publish(Int64(sa))
-                        print("sa_pub: ", sa)
+                        #print("sa_pub: ", sa)
                     else:
                         pub_steering_angle.publish(Int64(0))
 
